@@ -1,0 +1,14 @@
+.navbar-brand a{
+	margin: 0;
+}
+.kuang{
+	opacity: .9;
+	background: #fff;
+	padding: 50px;
+	border-radius: 10px;
+	margin: 100px 0 0;
+}
+body{
+	background-image: url("../images/back2.jpg");
+	background-size: cover;
+}
