@@ -1,12 +1,4 @@
 <?php
-	/*function gbk_to_utf8($str)
-	{
-		return mb_convert_encoding($str, 'utf-8', 'gbk');
-	}
-	function utf8_to_gbk($str)
-	{
-		return mb_convert_encoding($str, 'gbk', 'utf-8');
-	}*/
 class valite
 {
 	public $image_path;
@@ -20,7 +12,7 @@ class valite
 	{
 		if(!isset($_SESSION))
 		session_start();
-		$this->image_path='image/'.session_id().'.jpg';
+		$this->image_path='image/valite.jpg';
 	}
 
 	public function PictureToData()
@@ -112,7 +104,7 @@ class valite
 			}
 		}
 		//echo "\nfirstword"+$first;
-		file_put_contents('word/first.txt',$first);
+		//file_put_contents('word/first.txt',$first);
 		$second="";
 		foreach($data as $key=>$value)
 		{
@@ -125,7 +117,7 @@ class valite
 			}
 		}
 		//echo "\nsecondword"+$second;
-		file_put_contents('word/second.txt',$second);
+		//file_put_contents('word/second.txt',$second);
 		$third="";
 		foreach($data as $key=>$value)
 		{
@@ -138,7 +130,7 @@ class valite
 			}
 		}
 		//echo "\nthirdword"+$third;
-		file_put_contents('word/third.txt',$third);
+		//file_put_contents('word/third.txt',$third);
 		$fourth="";
 		foreach($data as $key=>$value)
 		{
@@ -151,7 +143,7 @@ class valite
 			}
 		}
 		//echo "\nfourthword"+$fourth;
-		file_put_contents('word/fourth.txt',$fourth);
+		//file_put_contents('word/fourth.txt',$fourth);
 		$word_arr=array(
 		0=>$first,
 		1=>$second,

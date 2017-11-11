@@ -6,7 +6,7 @@
 	$var->Exec();
 	$var->CreateWordModel();
 	$var->ReturnResult();
-    file_put_contents('code.txt',$var->valite_result);
+   
 	function gbk_to_utf8($str)
 	{
 		return mb_convert_encoding($str, 'utf-8', 'gbk');
@@ -39,8 +39,8 @@
 		return $result;
 	}
 	$url="http://222.16.96.12:8080/selfservice/module/scgroup/web/login_judge.jsf";
-	$cookie = dirname(__FILE__) . '/cookie/'.$_SESSION['id'].'.txt';
-	$code=file_get_contents('code.txt');
+	$cookie = dirname(__FILE__) . '/cookie/cookie.txt';
+	$code=$var->valite_result;
 	$post=array(
 		 'act'=>'add',
 		 'name'=>$_POST['username'],
