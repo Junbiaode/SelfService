@@ -1,4 +1,5 @@
 <?php
+session_start();
 class valite
 {
 	public $image_path;
@@ -10,9 +11,8 @@ class valite
 	public $valite_result;
 	public function __construct()
 	{
-		if(!isset($_SESSION))
-		session_start();
-		$this->image_path='image/valite.jpg';
+		
+		$this->image_path='valite_image/'.session_id().'.jpg';
 	}
 
 	public function PictureToData()
@@ -91,7 +91,6 @@ class valite
 	{
 		$location=$this->word_location;
 		$data=$this->data;
-		//echo '<pre>';print_r($this->word_location);
 		$first="";
 		foreach($data as $key=>$value)
 		{
@@ -103,8 +102,6 @@ class valite
 			   }
 			}
 		}
-		//echo "\nfirstword"+$first;
-		//file_put_contents('word/first.txt',$first);
 		$second="";
 		foreach($data as $key=>$value)
 		{
@@ -116,8 +113,6 @@ class valite
 			   }
 			}
 		}
-		//echo "\nsecondword"+$second;
-		//file_put_contents('word/second.txt',$second);
 		$third="";
 		foreach($data as $key=>$value)
 		{
@@ -129,8 +124,6 @@ class valite
 			   }
 			}
 		}
-		//echo "\nthirdword"+$third;
-		//file_put_contents('word/third.txt',$third);
 		$fourth="";
 		foreach($data as $key=>$value)
 		{
@@ -142,8 +135,6 @@ class valite
 			   }
 			}
 		}
-		//echo "\nfourthword"+$fourth;
-		//file_put_contents('word/fourth.txt',$fourth);
 		$word_arr=array(
 		0=>$first,
 		1=>$second,
@@ -154,7 +145,7 @@ class valite
 	}
 	public function WordModel()
 	{
-		return $wordmodel=[
+		return $wordmodel=array(
 		0=>"00000001111110000000000001111111111000000000110000000011000000001000000000010000000011000000001100000000011111111110000000000001111110000000",
 		1=>"000001000000000100000000010000000001000000001111111111110000000011111111111100000000000000000001000000000000000000010000",
 		2=>"0000001000000001000000000100000000110000000010000000011100000000100000001011000000001100001100110000000011111110001100000000011110000011000000000000000001100000",
@@ -165,7 +156,7 @@ class valite
 		7=>"0000001000000000000000001100000000000000000011000000000100000000110000001110000000001100001100000000000011011100000000000000111000000000000000001000000000000000",
 		8=>"0000001100001100000000000111100111100000000011001110001100000000100001100001000000001000011000010000000010001011000100000000011110011110000000000011000011000000",
 		9=>"0000001111000001000000000111111000010000000011000011000100000000100000010010000000001000000100100000000011000001110000000000011111111000000000000011111000000000",
-		];
+		);
 	}
 	public function ArrMaxKey($arr)
 	{
@@ -194,11 +185,12 @@ class valite
 				similar_text($this->word_arr[$i],$v,$percent);
 				$arr[$k]=$percent;
 			}
-			//echo '<pre>';print_R($arr);
-			//echo $this->ArrMaxKey($arr);
 			$result.=$this->ArrMaxKey($arr);
+
 		}
-		echo utf8_to_gbk("识别结果为：").$result;
+		//echo utf8_to_gbk("识别结果为：").$result;
 		$this->valite_result=$result;
+		return $result;
+		
 	}		
 }

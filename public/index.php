@@ -43,7 +43,7 @@
       <div class="col-md-7"></div>
 <div class="col-md-4">
   <div class="kuang clear-fix">
-        <form class="form-horizontal myform" role="form" action="../PostLogin.php" method="post" >
+        <form class="form-horizontal myform" role="form" action="../RequestMain.class.php" method="post" >
   <div class="form-group">
     <label for="inputEmail3" class="col-sm-3 control-label">账号</label>
     <div class="col-sm-9">
